@@ -3,3 +3,4 @@ node_modules
 .hubot_history
 *.egg
 hubot_hangups.egg-info
+log.txt
