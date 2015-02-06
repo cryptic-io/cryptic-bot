@@ -18,7 +18,8 @@
     "hubot-scripts": "~2.5.16",
     "hubot": "~2.11.0",
     "hubot-maps": "0.0.1",
-    "hubot-hangups": "~1.0.1"
+    "hubot-hangups": "~1.0.1",
+    "twilio": "1.10.0"
   },
   "engines": {
     "node": "0.10.x"
