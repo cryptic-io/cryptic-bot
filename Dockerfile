@@ -1,4 +1,4 @@
-FROM node-and-python3
+FROM cryptic/node-and-python3
 
 RUN git clone https://github.com/cryptic-io/cryptic-bot.git
 RUN git clone https://github.com/tdryer/hangups.git
