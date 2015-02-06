@@ -14,16 +14,17 @@
 #   Marco
 
 serverPort = 8123
+serverHost = process.env.HUBOT_PROXY_HOST
 
 module.exports = (robot) ->
   robot.respond /(insert)\s+(.*)/i, (msg)->
     imgUrl = msg.match[2]
 
-    msg.http("http://localhost:#{serverPort}/proxy")
+    msg.http("http://#{serverHost}:#{serverPort}/proxy")
       .query(imgUrl: imgUrl)
       .get() (err, res, body) ->
         switch res.statusCode
-          when 200 then msg.reply body
-          when 302 then msg.reply "Debug: Redirecting"
+          when 200 then msg.send body
+          when 302 then msg.send "Debug: Redirecting"
           else
-            msg.reply "Unable to proxy url. Request returned with the status code: #{res.statusCode}"
+            msg.send "Unable to proxy url. Request returned with the status code: #{res.statusCode}"

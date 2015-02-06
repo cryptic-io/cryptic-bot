@@ -30,11 +30,11 @@ module.exports = (robot) ->
             result = JSON.parse(body)
 
             if result.error
-              msg.reply result.message
+              msg.send result.message
             else
               outputs = result.result.split("\n")
               for output in outputs
-                msg.reply output
-          when 302 then msg.reply "Debug: Redirecting" 
+                msg.send output
+          when 302 then msg.send "Debug: Redirecting"
           else
-            msg.reply "Unable to evaluate script: #{script}. Request returned with the status code: #{res.statusCode}"
+            msg.send "Unable to evaluate script: #{script}. Request returned with the status code: #{res.statusCode}"
